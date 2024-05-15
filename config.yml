@@ -1,0 +1,83 @@
+---
+env:
+  development:
+    name: development
+    environmentShortName: dev
+    subscriptionName: 'BritishAirways-dev-pm-mgmt'
+    subscriptionId: 97e0b448-7ad3-4922-be9d-2f694fffe5a7
+    devTestManifest: level-99
+    location:
+      uksouth:
+        name: uksouth
+        locationShortName: uks
+        manifest:
+          - level-01
+          - level-02
+        #   - level-03
+        #   - level-04
+          - level-05
+          - level-06
+        # democratiseSubscription:
+        #   level-02:
+        #      name: level-02
+        #     subscriptionId: 00000000-0000-0000-0000-000000000000
+        #     subscriptionName: 'BritishAirways-dev-pm-connectivity'
+        #   level-03:
+        #     name: level-03
+        #     subscriptionId: b60ea622-ecb5-40b0-9ea9-5570b16f0b6b
+        #     subscriptionName: 'BritishAirways-dev-pm-identity'
+      # westeurope:
+      #   name: westeurope
+      #   locationShortName: weu
+      #   manifest:
+      #     - level-02
+      #   democratiseSubscription:
+      #     level-02:
+      #       name: level-02
+      #       subscriptionId: 00000000-0000-0000-0000-000000000000
+      #       subscriptionName: 'BritishAirways-dev-pm-connectivity'
+    terraform:
+      backend:
+        terraformStateResourceGroup: dev-uks-pm-tf-rg
+        terraformStateStorageAccount: devukspmtfsa01
+        terraformStateContainerName: tfstate
+        terraformVersion: '1.3.7'
+  pre-production:
+    name: pre-production
+    environmentShortName: ppd
+    subscriptionName: 'BritishAirways-ppd-pm-mgmt'
+    subscriptionId: 4f2c3056-707e-4e1f-8ee6-accdb242cea6
+    location:
+      uksouth:
+        name: uksouth
+        locationShortName: uks
+        manifest:
+          - level-01
+          - level-02
+          - level-05
+    terraform:
+      backend:
+        terraformStateResourceGroup: ppd-uks-pm-tf-rg
+        terraformStateStorageAccount: ppdukspmtfsa01
+        terraformStateContainerName: tfstate
+        terraformVersion: '1.3.7'
+  production:
+    name: production
+    environmentShortName: prd
+    subscriptionName: 'BritishAirways-prd-pm-mgmt'
+    subscriptionId: 822593d7-adbd-482d-994c-94d9d4fb012b
+    location:
+      uksouth:
+        name: uksouth
+        locationShortName: uks
+        manifest:
+          - level-01
+          - level-02
+          - level-05
+          - level-06
+    terraform:
+      backend:
+        terraformStateResourceGroup: prd-uks-pm-tf-rg
+        terraformStateStorageAccount: prdukspmtfsa01
+        terraformStateContainerName: tfstate
+        terraformVersion: '1.3.7'
